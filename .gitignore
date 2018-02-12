@@ -1,0 +1,6 @@
+# VIM
+vim/view
+vim/bundle
+
+# FISH
+config/fish/fishd.*
