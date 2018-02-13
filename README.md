@@ -6,7 +6,7 @@ I created this because I couldn't achieve what I wanted with my previous dotfile
 - I wanted to treat my dotfiles as any other code repository (and have it in `~/Dev`).
 - I wanted for all changes I made in `~/.anyfile` to be reflected in the dotfiles repo.
 - I didn't want to make my `~` a git repo.
-- I wanted something simpler than existing solutions, like `[homesick](https://github.com/technicalpickles/homesick)`.
+- I wanted something simpler than existing solutions, like [`homesick`](https://github.com/technicalpickles/homesick).
 
 ## Installation
 
