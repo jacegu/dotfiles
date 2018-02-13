@@ -1,6 +1,6 @@
 # jacegu's dotfiles
 
-![Screenshot of my shell prompt](https://cl.ly/2N1M2i1v000C/my-fish-terminal-prompt.png)
+![Screenshot of my shell prompt](https://cl.ly/302h1D2d0e3z/my-fish-terminal-prompt.png)
 
 I created this because I couldn't achieve what I wanted with my previous dotfiles repo.
 - I wanted to treat my dotfiles as any other code repository (and have it in `~/Dev`).
@@ -11,7 +11,7 @@ I created this because I couldn't achieve what I wanted with my previous dotfile
 ## Installation
 
 ```bash
-git clone && cd dotfiles && ./_setup/install.sh
+git clone https://github.com/jacegu/dotfiles.git && cd dotfiles && ./_setup/install.sh
 ```
 
 All the magic happens in `_setup/install.sh`. This bash script will:
@@ -22,14 +22,10 @@ All the magic happens in `_setup/install.sh`. This bash script will:
 
 The installation script will consider existing files and warn you about them. It is also designed so it can be run as as many times as necessary, considering steps of the setup that have already been completed.
 
----
-
 ## Author
+
+[Javier Acero](https://javieracero.com)
 
 ### Thanks to…
 
-This is a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles) that I have been customizing over time. Installation instructions and the rest of the README won't be modified unless I add something different.
-
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](https://mathiasbynens.be/) |
+I originally forked my dotfiles repo of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles) by [Mathias Bynens](https://mathiasbynens.be/) and started to customize it. When I switched to 🐟 shell I decided to start from scratch and deleted pretty much everything. There are still some useful aliases and git settings that I have ported over, so I want to give credit where it's due.
