@@ -141,7 +141,7 @@ let g:ctrlp_custom_ignore = {
 let g:airline_theme='kalisi'
 let g:airline_powerline_fonts=0
 
-" The Silver Searcher (a.k.a ag) customizations 
+" The Silver Searcher (a.k.a ag) customizations
 if executable('ag')
    " ack.vim options
     let g:ackprg = 'ag --vimgrep --smart-case'
@@ -152,6 +152,10 @@ if executable('ag')
 
    " Use ag over grep
    set grepprg=ag\ --nogroup\ --nocolor\ --path-to-ignore\ $HOME/.agignore
+
+   " Alias Ack.vim command searches
+   cnoreabbrev Ag Ack
+   cnoreabbrev ag Ack
 end
 
 
@@ -197,6 +201,7 @@ map <LEADER>f :CtrlPCurFile<CR>
 
 " ack.vim
 nnoremap F :Ack <cword><cr>
+nnoremap <LEADER>a :Ack<space>
 
 "Clean search
 nnoremap <LEADER><space> :noh<CR>
@@ -270,7 +275,6 @@ endfunction
 
 map <leader>s  :call RunTestFile()<cr>
 map <leader>S  :call RunNearestTest()<cr>
-map <leader>a  :call RunTests('spec')<cr>
 "not using cucumber much lately
 "map <leader>c  :w\|:!cucumber --drb<cr>
 "map <leader>C  :w\|:!cucumber --drb --tag @wip<cr>
