@@ -15,10 +15,11 @@ alias hr 'history --merge'
 alias g  "git"
 
 # VIM ##########################################################################
-alias v  "vim"
-alias vi "vim"
-alias retag="ctags -R --exclude=.git --exclude=log --exclude=tmp *"
+alias v  "nvim"
+alias vi "nvim"
+alias vi "nvim"
 alias vim-view-clean="rm ~/.vim/view/*"
+alias retag="ctags -R --exclude=.git --exclude=log --exclude=tmp *"
 
 # RUBY #########################################################################
 alias r   "rake"
