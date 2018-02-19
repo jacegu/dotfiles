@@ -1,41 +1,12 @@
+source ~/.vim/plugins.vim
+
 " this must be first, because it changes other options as a side effect
 set nocompatible
-
-" required before vundle
-filetype off
-
-" Required Vundle setup
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugins
-
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-
-Plugin 'matchit.zip'
-
-" LANGUAGE PLUGINS
-
-" Ruby
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'ruby-matchit'
-
-" Elixir
-Plugin 'elixir-lang/vim-elixir'
-
-" required after vundle
-filetype plugin indent on
 
 " enable per-directory .vimrc files
 set exrc
 " disable unsafe commands in local .vimrc files
 set secure
-
 
 " remove swap and backup files from your working directory
 set backupdir=~/.vim/backups,~/.tmp,~/tmp,/var/tmp,/tmp
