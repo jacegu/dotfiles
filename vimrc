@@ -196,6 +196,10 @@ map <leader><cr> :!clear; ruby %<cr>
 "re-run last command
 map <leader>. :!!<cr>
 
+" RUN TESTS (https://github.com/janko-m/vim-test)
+map <leader>s :TestFile<cr>
+map <leader>S :TestNearest<cr>
+
 
 "REMOVED MAPPINGS
 
@@ -203,52 +207,6 @@ map <leader>. :!!<cr>
 map   <F1>    <nop>
 map!  <F1>    <nop>
 
-
-"
-" @garybernhanrdts stuff to run specs from vim
-" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-function! RunTests(filename)
-  " Write the file and run tests for the given filename
-  :silent !clear
-  if filereadable("script/test")
-    execute ":!script/test " . a:filename
-  else
-    execute ":!bundle exec rspec --no-profile --format documentation " . a:filename
-  end
-endfunction
-
-function! SetTestFile()
-  " Set the spec file that tests will be run for.
-  let t:grb_test_file=@%
-endfunction
-
-function! RunTestFile(...)
-  if a:0
-    let command_suffix = a:1
-  else
-    let command_suffix = ""
-  endif
-
-  " Run the tests for the previously-marked file.
-  let in_spec_file = match(expand("%"), '_spec.rb$') != -1
-  if in_spec_file
-    call SetTestFile()
-  elseif !exists("t:grb_test_file")
-    return
-  end
-  call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-map <leader>s  :call RunTestFile()<cr>
-map <leader>S  :call RunNearestTest()<cr>
-"not using cucumber much lately
-"map <leader>c  :w\|:!cucumber --drb<cr>
-"map <leader>C  :w\|:!cucumber --drb --tag @wip<cr>
 
 
 "COMMAND ALIASING
