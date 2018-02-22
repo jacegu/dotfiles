@@ -162,6 +162,7 @@ map <LEADER>rw <C-w>r
 
 " buffer handling with leader key
 map <LEADER>3 :b#<CR>
+map <LEADER>X :bd!<CR>
 
 " open nerdtree with leader key
 map <LEADER>n :NERDTree<CR>
@@ -197,6 +198,8 @@ map <leader><cr> :!clear; ruby %<cr>
 map <leader>. :!!<cr>
 
 " RUN TESTS (https://github.com/janko-m/vim-test)
+let test#strategy = "basic"
+map <leader>r :TestLast<cr>
 map <leader>s :TestFile<cr>
 map <leader>S :TestNearest<cr>
 
@@ -227,19 +230,11 @@ autocmd FileType ruby,eruby
 " NEOVIM
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('nvim')
-  let g:neoterm_position = 'horizontal'
-  let g:neoterm_run_tests_bg             = 1
-  let g:neoterm_raise_when_tests_fail    = 1
-  let g:neoterm_close_when_tests_succeed = 1
-
-  " run set test lib
-  " nnoremap <silent> <leader>r :call neoterm#test#run('all')<cr>
-  " nnoremap <silent> <leader>re :call neoterm#test#run('file')<cr>
-  " nnoremap <silent> <leader>rew :call neoterm#test#run('current')<cr>
-  " nnoremap <silent> <leader>rr :call neoterm#test#rerun()<cr>
-  " nnoremap <silent> <leader>rc :call neoterm#close()<cr>
-
-  " set statusline+=%#NeotermTestRunning#%{neoterm#test#status('running')}%*
-  " set statusline+=%#NeotermTestSuccess#%{neoterm#test#status('success')}%*
-  " set statusline+=%#NeotermTestFailed#%{neoterm#test#status('failed')}%*
+  " https://jerrington.me/posts/2016-05-02-neovim-terminal-quicknav.html
+  tnoremap <C-u> <C-\><C-n><C-u>
+  tnoremap <C-d> <C-\><C-n><C-d>
+  tnoremap <C-h> <C-\><C-n><C-h>
+  tnoremap <C-j> <C-\><C-n><C-j>
+  tnoremap <C-k> <C-\><C-n><C-k>
+  tnoremap <C-l> <C-\><C-n><C-l>
 endif
