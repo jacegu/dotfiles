@@ -198,10 +198,11 @@ map <leader><cr> :!clear; ruby %<cr>
 map <leader>. :!!<cr>
 
 " RUN TESTS (https://github.com/janko-m/vim-test)
-let test#strategy = "basic"
+let test#strategy = "neovim"
 map <leader>r :TestLast<cr>
 map <leader>s :TestFile<cr>
 map <leader>S :TestNearest<cr>
+let test#ruby#rspec#options = '--color --format progress --no-profile'
 
 
 "REMOVED MAPPINGS
