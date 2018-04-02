@@ -14,6 +14,7 @@ brew "ruby-install"
 brew "the_silver_searcher"
 brew "tree"
 brew "vim"
+brew "wget"
 brew "youtube-dl"
 
 # Cask
