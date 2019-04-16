@@ -198,7 +198,7 @@ map <leader><cr> :!clear; ruby %<cr>
 map <leader>. :!!<cr>
 
 " RUN TESTS (https://github.com/janko-m/vim-test)
-let test#strategy = "neovim"
+let test#strategy = "vimterminal"
 map <leader>r :TestLast<cr>
 map <leader>s :TestFile<cr>
 map <leader>S :TestNearest<cr>

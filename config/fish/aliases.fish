@@ -15,9 +15,8 @@ alias hr 'history --merge'
 alias g  "git"
 
 # VIM ##########################################################################
-alias v  "nvim"
-alias vi "nvim"
-alias vi "nvim"
+alias v  "vim"
+alias vi "vim"
 alias vim-view-clean="rm ~/.vim/view/*"
 alias retag="ctags -R --exclude=.git --exclude=log --exclude=tmp *"
 
