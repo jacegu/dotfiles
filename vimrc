@@ -118,7 +118,7 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep --smart-case'
 
     " ctrlp.options
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g "" | sort'
     let g:ctrlp_use_caching = 0
 
    " Use ag over grep

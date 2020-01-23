@@ -20,11 +20,11 @@ Plugin 'matchit.zip'
 Plugin 'janko-m/vim-test'
 
 " Ruby
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-ruby/vim-ruby'
 Plugin 'ruby-matchit'
 
 " Elixir
-Plugin 'elixir-lang/vim-elixir'
+" Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
