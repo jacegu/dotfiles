@@ -180,3 +180,9 @@
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
 
+# https://git-lfs.github.com/
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
