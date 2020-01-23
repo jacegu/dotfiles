@@ -13,12 +13,15 @@ alias hr 'history --merge'
 
 # GIT ##########################################################################
 alias g  "git"
+alias head "git show HEAD"
+alias wip "git commit -a -m'WIP'"
+alias unwip "git show HEAD; git reset HEAD~1"
 
 # VIM ##########################################################################
 alias v  "vim"
 alias vi "vim"
 alias vim-view-clean="rm ~/.vim/view/*"
-alias retag="ctags -R --exclude=.git --exclude=log --exclude=tmp *"
+alias retag="ctags -R --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules --exclude=vendor --exclude=test *"
 
 # RUBY #########################################################################
 alias r   "rake"
