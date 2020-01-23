@@ -13,7 +13,7 @@ if [ ! -f .rubocop.yml ]; then
   exit 0
 fi
 
-if ! command -v rubocop > /dev/null; then
+if ! command -v bundle exec rubocop > /dev/null; then
   # Rubocop config file present but Rubocop not installed
   printf "${CLEAR_LINE}💀${RED}   Install Rubocop and be sure it is available on your PATH${NO_COLOR}\n"
   printf "ℹ️   Try 'gem install rubocop'\n"
@@ -22,13 +22,13 @@ fi
 
 printf "🚔    Linting with Rubocop..."
 
-suspects="$(comm -12 <(git diff --cached --name-only --diff-filter=AMC | sort) <(rubocop --list-target-files 2> /dev/null | sort) | tr '\n' ' ')"
+suspects="$(comm -12 <(git diff --cached --name-only --diff-filter=AMC | sort) <(bundle exec rubocop --list-target-files 2> /dev/null | sort) | tr '\n' ' ')"
 
 if [ -n "$suspects" ]; then
   printf "${CLEAR_LINE}🚔   Linting files: ${suspects}\n"
 
   # Run rubocop on the staged files
-  if ! rubocop --format simple ${suspects} #> /dev/null
+  if ! bundle exec rubocop --format simple ${suspects} #> /dev/null
   then
     printf "${CLEAR_LINE}${RED}💀   Rubocop found some issues. Fix, stage, and commit again${NO_COLOR}\n"
     printf "ℹ️   Try 'rubocop --format simple --auto-correct && git add -p'\n"
