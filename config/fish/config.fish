@@ -8,6 +8,9 @@ fish_vi_key_bindings
 # Setup Jump (https://github.com/gsamokovarov/jump)
 status --is-interactive; and . (jump shell --bind=t | psub)
 
-# Setup chruby-fish (https://github.com/JeanMertz/chruby-fish)
-source /usr/local/share/chruby/chruby.fish
-source /usr/local/share/chruby/auto.fish
+# Setup asdf (https://asdf-vm.com/#/core-manage-asdf-vm?id=install-asdf-vm)
+source /usr/local/opt/asdf/asdf.fish
+
+# chruby stuff that I'm removing
+# source /usr/local/share/chruby/chruby.fish
+# source /usr/local/share/chruby/auto.fish
