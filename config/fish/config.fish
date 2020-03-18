@@ -6,7 +6,7 @@ source $HOME/.config/fish/aliases.fish
 fish_vi_key_bindings
 
 # Setup Jump (https://github.com/gsamokovarov/jump)
-status --is-interactive; and . (jump shell --bind=t | psub)
+status --is-interactive; and source (jump shell --bind=t fish | psub)
 
 # Setup asdf (https://asdf-vm.com/#/core-manage-asdf-vm?id=install-asdf-vm)
 source /usr/local/opt/asdf/asdf.fish
