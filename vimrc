@@ -83,6 +83,9 @@ set completeopt=longest,menuone
 set spell
 set spelllang=en ", es -> cannot set both due E763 error
 
+" tag navigation (ctags)
+set tags =.ctags;
+
 " highlight spelling mistakes by underlining
 hi clear SpellBad
 hi SpellBad cterm=underline

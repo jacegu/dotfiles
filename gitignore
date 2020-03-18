@@ -1,5 +1,5 @@
 # Ignore ctags file
-tags
+.ctags
 
 # Compiled Python files
 *.pyc
