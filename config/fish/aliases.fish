@@ -27,12 +27,6 @@ alias retag="ctags -R -f .ctags --exclude=.git --exclude=log --exclude=tmp --exc
 alias r   "rake"
 alias be  "bundle exec"
 alias ber "bundle exec rake"
-# Fix: https://blog.phusion.nl/2017/10/13/why-ruby-app-servers-break-on-macos-high-sierra-and-what-can-be-done-about-it/
-alias foreman "env OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES foreman"
-
-# RUBY-INSTALL #################################################################
-# Download source for rubies to ~/Downloads and clean after compiling
-alias ruby-install="ruby-install -s ~/Downloads -c"
 
 # IP ADDRESSES #################################################################
 alias ip      "dig +short myip.opendns.com @resolver1.opendns.com"
