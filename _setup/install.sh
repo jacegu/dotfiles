@@ -15,6 +15,7 @@ githooks
 gitignore
 gvimrc
 hushlogin
+irbrc
 #osx
 screenrc
 vim

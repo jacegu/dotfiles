@@ -1,4 +1,5 @@
 # Ignore ctags file
+tags
 .ctags
 
 # Compiled Python files
@@ -15,3 +16,6 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# irb history
+.irb-history
