@@ -54,7 +54,9 @@ alias reload "exec $SHELL -l"
 # MANAGING SERVICES ############################################################
 alias redis.start "launchctl load   /usr/local/opt/redis/homebrew.mxcl.redis.plist"
 alias redis.stop  "launchctl unload /usr/local/opt/redis/homebrew.mxcl.redis.plist"
-alias pg.start "launchctl load   /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist"
-alias pg.stop  "launchctl unload /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist"
 alias mongo.start "launchctl load   /usr/local/opt/mongodb/homebrew.mxcl.mongodb.plist"
 alias mongo.stop  "launchctl unload /usr/local/opt/mongodb/homebrew.mxcl.mongodb.plist"
+
+# Postgres.app
+alias pg.start "pg_ctl -D /Users/jacegu/Library/Application\ Support/Postgres/var-13 start"
+alias pg.stop  "pg_ctl -D /Users/jacegu/Library/Application\ Support/Postgres/var-13 stop"
