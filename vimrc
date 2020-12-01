@@ -1,5 +1,8 @@
 source ~/.vim/plugins.vim
 
+" set mouse support
+set mouse=a
+
 " this must be first, because it changes other options as a side effect
 set nocompatible
 
