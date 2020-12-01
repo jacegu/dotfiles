@@ -102,8 +102,10 @@
 # Configuration and preferences
 ################################################################################
 [user]
-  name = Javier Acero
-  email = j4cegu@gmail.com
+	name = Javier Acero
+	email = j4cegu@gmail.com
+	signkey = 16D3B85AF18A5A54
+	signingkey = 16D3B85AF18A5A54
 
 [apply]
   # Detect whitespace errors when applying a patch
@@ -186,3 +188,5 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+[gpg]
+	program = gpg

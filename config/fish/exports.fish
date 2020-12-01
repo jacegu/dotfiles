@@ -26,3 +26,6 @@ set -x MANPAGER "less -X";
 # Go settings
 set -x GOPATH "$HOME/go"
 set -x PATH "$PATH:$GOPATH/bin"
+
+# gnupg settings
+set -x GPG_TTY (tty)
