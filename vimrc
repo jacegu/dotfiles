@@ -1,7 +1,9 @@
 source ~/.vim/plugins.vim
 
 " set mouse support
-set mouse=a
+set ttyfast
+" set mouse=a
+set ttymouse=xterm2
 
 " this must be first, because it changes other options as a side effect
 set nocompatible
@@ -20,11 +22,10 @@ set directory=~/.vim/backups,~/.tmp,~/tmp,/var/tmp,/tmp
 set hidden
 
 " remember more commands and search history
-set history=1000
+set history=100
 
 " shell selection
 set shell=fish
-set shell=sh
 
 syntax on
 set visualbell
@@ -54,12 +55,7 @@ set number
 set nowrap
 
 " indentation
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
 set smarttab
-set expandtab
-set autoindent
 
 " search
 set ignorecase
@@ -71,8 +67,13 @@ set hlsearch
 set showmatch
 
 " COLOR SCHEMES
-set t_Co=256
-colorscheme Tomorrow
+set termguicolors
+colorscheme onehalflight
+" let ayucolor="light"
+" colorscheme ayu
+" set t_Co=256
+" colorscheme Tomorrow
+
 
 " status bar
 set showcmd
@@ -85,13 +86,17 @@ set completeopt=longest,menuone
 " spell checking
 set spell
 set spelllang=en ", es -> cannot set both due E763 error
-
-" tag navigation (ctags)
-set tags =.ctags;
+set spellcapcheck=""  "disable capital spell checks
 
 " highlight spelling mistakes by underlining
 hi clear SpellBad
 hi SpellBad cterm=underline
+hi clear SpellRare
+hi SpellRare cterm=underline
+hi clear SpellCap
+hi SpellCap cterm=underline
+hi clear SpellLocal
+hi SpellLocal cterm=underline
 
 " visual aid for the 80th column
 "set colorcolumn=80
@@ -101,39 +106,53 @@ au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
 
 
+" tag navigation (ctags)
+setglobal tags=tags,
+
+
 " ctrlp.options
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.tool-versions
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/]deps|_build|\.(git|hg|svn|sass-cache|)$',
       \ 'file': '\v[\/]tags|\.(exe|so|dll|DS_Store|pyc|beam)$',
       \ 'link': 'some_bad_symbolic_links',
       \ }
+" Disable caching (fd is fast enough)
+let g:ctrlp_use_caching = 1
+" Search only by filename (vs. using the entire path)
+let g:ctrlp_by_filename = 0
+" Wait to finish typing before showing results
+let g:ctrlp_lazy_update = 0
 
+if executable('fd')
+  " Use fd to navigate files (https://github.com/sharkdp/fd)
+  let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+end
 
-" airline.vim options
-let g:airline_theme='kalisi'
-let g:airline_powerline_fonts=0
 
 " The Silver Searcher (a.k.a ag) customizations
 if executable('ag')
-   " ack.vim options
-    let g:ackprg = 'ag --vimgrep --smart-case'
+  " ack.vim options
+  let g:ackprg = 'ag --vimgrep'
 
-    " ctrlp.options
-    let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g "" | sort'
-    let g:ctrlp_use_caching = 0
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --path-to-ignore\ $HOME/.agignore
 
-   " Use ag over grep
-   set grepprg=ag\ --nogroup\ --nocolor\ --path-to-ignore\ $HOME/.agignore
-
-   " Alias Ack.vim command searches
-   cnoreabbrev Ag Ack
-   cnoreabbrev ag Ack
+  " Alias Ack.vim command searches
+  cnoreabbrev Ag Ack
+  cnoreabbrev ag Ack
 end
+
+
+" airline.vim options
+" let g:airline_theme='kalisi'
+let g:airline_theme='onehalfdark'
+let g:airline_powerline_fonts=1
+
 
 
 " MAPPINGS
@@ -141,11 +160,6 @@ let mapleader=","
 
 " navigate semantically via ctags
 nmap <LEADER>o <C-]>
-
-" <3 <3 <3 @sbastn
-imap jj <Esc>
-" <3 <3 <3 Colemak
-imap <leader><leader> <Esc>
 
 
 " HANDLING WINDOWS
@@ -197,8 +211,6 @@ map <Leader>I mmgg=G`m
 
 " remove trailing whitespaces
 map <leader>T  mm\|:%s/\s\s*$//g<cr>\|`m
-" run as ruby file
-map <leader><cr> :!clear; ruby %<cr>
 
 "re-run last command
 map <leader>. :!!<cr>
@@ -208,7 +220,6 @@ let test#strategy = "vimterminal"
 map <leader>r :TestLast<cr>
 map <leader>s :TestFile<cr>
 map <leader>S :TestNearest<cr>
-let test#ruby#rspec#options = '--color --format progress --no-profile'
 
 
 "REMOVED MAPPINGS
@@ -216,32 +227,3 @@ let test#ruby#rspec#options = '--color --format progress --no-profile'
 " disble F1 as :h shortchut in all modes
 map   <F1>    <nop>
 map!  <F1>    <nop>
-
-
-
-"COMMAND ALIASING
-command! Evimrc e $HOME/.vimrc
-command! Tryrb  e /tmp/try.rb
-command! Trypy  e /tmp/try.py
-command! Rvimrc source $HOME/.vimrc
-command! R :!rake
-
-"OTHER STUFF
-
-" Automatically fold comments in Ruby files
-autocmd FileType ruby,eruby
-      \ set foldmethod=expr |
-      \ set foldexpr=getline(v:lnum)=~'^\\s*#'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NEOVIM
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('nvim')
-  " https://jerrington.me/posts/2016-05-02-neovim-terminal-quicknav.html
-  tnoremap <C-u> <C-\><C-n><C-u>
-  tnoremap <C-d> <C-\><C-n><C-d>
-  tnoremap <C-h> <C-\><C-n><C-h>
-  tnoremap <C-j> <C-\><C-n><C-j>
-  tnoremap <C-k> <C-\><C-n><C-k>
-  tnoremap <C-l> <C-\><C-n><C-l>
-endif

@@ -1,5 +1,4 @@
 set nocompatible
-filetype plugin indent on
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -19,13 +18,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'matchit.zip'
 Plugin 'janko-m/vim-test'
 
+Plugin 'junegunn/fzf.vim'
+
+
 " Ruby
-" Plugin 'vim-ruby/vim-ruby'
-Plugin 'ruby-matchit'
+" Plugin 'ruby-matchit'
 
 " Elixir
-" Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-filetype plugin on           " required by wimwiki
