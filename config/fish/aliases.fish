@@ -21,7 +21,7 @@ alias unwip "git show HEAD; git reset HEAD~1"
 alias v  "vim"
 alias vi "vim"
 alias vim-view-clean="rm ~/.vim/view/*"
-alias retag="ctags -R -f .ctags --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules --exclude=vendor --exclude=test * "
+alias retag="ctags -R --exclude=(basename ./.*) --exclude=log --exclude=tmp --exclude=node_modules --exclude=vendor"
 
 # RUBY #########################################################################
 alias r   "rake"
