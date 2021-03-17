@@ -1,4 +1,4 @@
-source ~/.vim/plugins.vim
+source ~/.vim/plugins-vundle.vim
 
 " set mouse support
 set ttyfast
