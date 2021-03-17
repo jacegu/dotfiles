@@ -14,19 +14,12 @@ Plugin 'mileszs/ack.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf.vim'
+
+Plugin 'sheerun/vim-polyglot'
 
 Plugin 'matchit.zip'
 Plugin 'janko-m/vim-test'
-
-Plugin 'junegunn/fzf.vim'
-
-
-" Ruby
-" Plugin 'ruby-matchit'
-
-" Elixir
-Plugin 'slashmili/alchemist.vim'
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required
