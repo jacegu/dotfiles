@@ -1,4 +1,4 @@
-source ~/.vim/plugins-plug.vim
+source ~/.vim/plugins.vim
 
 " set mouse support
 set ttyfast
