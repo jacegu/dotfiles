@@ -153,6 +153,8 @@ end
 let g:airline_theme='onehalfdark'
 let g:airline_powerline_fonts=1
 
+" matchup.vim config
+let g:matchup_matchparen_offscreen = {}
 
 
 " MAPPINGS
