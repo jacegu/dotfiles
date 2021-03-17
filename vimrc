@@ -110,41 +110,13 @@ au BufWinEnter * silent! loadview
 setglobal tags=tags,
 
 
-" ctrlp.options
-let g:ctrlp_map = '<leader>t'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.tool-versions
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]deps|_build|\.(git|hg|svn|sass-cache|)$',
-      \ 'file': '\v[\/]tags|\.(exe|so|dll|DS_Store|pyc|beam)$',
-      \ 'link': 'some_bad_symbolic_links',
-      \ }
-" Disable caching (fd is fast enough)
-let g:ctrlp_use_caching = 1
-" Search only by filename (vs. using the entire path)
-let g:ctrlp_by_filename = 0
-" Wait to finish typing before showing results
-let g:ctrlp_lazy_update = 0
-
-if executable('fd')
-  " Use fd to navigate files (https://github.com/sharkdp/fd)
-  let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
-end
-
-
 " The Silver Searcher (a.k.a ag) customizations
 if executable('ag')
-  " ack.vim options
-  let g:ackprg = 'ag --vimgrep'
-
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor\ --path-to-ignore\ $HOME/.agignore
 
-  " Alias Ack.vim command searches
-  cnoreabbrev Ag Ack
-  cnoreabbrev ag Ack
+  " Use ag to consume fzf output (and respect .gitignore)
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 end
 
 
@@ -152,6 +124,7 @@ end
 " let g:airline_theme='kalisi'
 let g:airline_theme='onehalfdark'
 let g:airline_powerline_fonts=1
+
 
 " matchup.vim config
 let g:matchup_matchparen_offscreen = {}
@@ -189,9 +162,8 @@ map <LEADER>X :bd!<CR>
 " open nerdtree with leader key
 map <LEADER>n :NERDTree<CR>
 
-" ctrlp.vim
-map <LEADER>b :CtrlPBuffer<CR>
-map <LEADER>f :CtrlPCurFile<CR>
+" fzf and fzf.vim
+map <LEADER>t :FZF<CR>
 
 " ack.vim
 nnoremap F :Ack <cword><cr>
