@@ -1,6 +1,6 @@
 # VIM
 vim/view
-vim/bundle
+vim/plugged
 
 # FISH
 config/fish/fishd.*
