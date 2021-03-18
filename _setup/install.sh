@@ -18,6 +18,7 @@ hushlogin
 irbrc
 #osx
 screenrc
+tool-versions
 vim
 vimrc
 wgetrc
