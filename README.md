@@ -1,6 +1,6 @@
 # jacegu's dotfiles
 
-![Screenshot of my shell prompt](https://cl.ly/302h1D2d0e3z/my-fish-terminal-prompt.png)
+<img width="955" alt="prompt" src="https://user-images.githubusercontent.com/381143/111706360-71005b80-8842-11eb-9243-fe83f1b424fc.png">
 
 I created this because I couldn't achieve what I wanted with my previous dotfiles repo.
 - I wanted to treat my dotfiles as any other code repository (and have it in `~/Dev`).
@@ -25,10 +25,9 @@ The installation script will consider existing files and warn you about them. It
 ### Other `_setup` content
 
 The `_setup` dir also includes the following:
-- My iTerm 2 preferences. I set it up so they are saved here and keep them under version control:
-  ![iTerm preferences](https://cl.ly/0m3x271H022m/iterm-preferences.png)
-- Tomorrow Morning color scheme for iTerm2. [See the original repo](https://github.com/chriskempson/tomorrow-theme). This is also the one I use with vim.
-- [Inconsolata font](http://levien.com/type/myfonts/inconsolata.html).
+- My iTerm 2 preferences (I keep them under version control).
+- [OneHalf color scheme](https://github.com/sonph/onehalf) for iTerm2. This is also the one I use with vim.
+- [Input Mono font](https://input.djr.com/).
 
 
 ## Author
