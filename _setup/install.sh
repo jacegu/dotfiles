@@ -101,18 +101,23 @@ function setupBrew() {
 
 function setupBrewBundle() {
   _setupLink $PWD/Brewfile $TARGET/Brewfile Brewfile
-  brew bundle
-  echo '✅ `brew bundle` run'
+  read -p 'Run `brew bundle`? [y/n] ' -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    brew bundle
+    echo '✅ `brew bundle` run'
+  else
+    echo '✅ "Skipping `brew bundle`...'
+  fi
 }
 
-
 function setupVim() {
-  if [ ! -d "vim/bundle/Vundle.vim" ]
+  if [ ! -d "vim/autoload/plug.vim" ]
   then
-    git clone git@github.com:VundleVim/Vundle.vim.git vim/bundle/Vundle.vim;
-    echo "✅ Vundle.vim git installed"
-    vim +BundleInstall +qall!;
-    echo "✅ :BundleInstall successufully completed"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo "✅ Plug.vim installed via curl"
+    vim +PlugInstall +qall!;
+    echo "✅ :PlugInstall successufully completed"
   else
     echo "✅ Vim has already been setup"
   fi
@@ -139,5 +144,5 @@ unset FILES;
 unset _setupLink;
 unset setLoginShell;
 unset setupBrew;
-unset setupBrewCask;
+unset setupBrewBundle;
 unset setupVim;
