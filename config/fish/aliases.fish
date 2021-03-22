@@ -60,3 +60,6 @@ alias mongo.stop  "launchctl unload /usr/local/opt/mongodb/homebrew.mxcl.mongodb
 # Postgres.app
 alias pg.start "pg_ctl -D /Users/jacegu/Library/Application\ Support/Postgres/var-13 start"
 alias pg.stop  "pg_ctl -D /Users/jacegu/Library/Application\ Support/Postgres/var-13 stop"
+
+# Visual Studio Code
+alias code "open -a Visual\ Studio\ Code"
