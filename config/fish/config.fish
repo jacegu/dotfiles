@@ -15,5 +15,15 @@ eval (direnv hook fish)
 # https://asdf-vm.com/#/core-manage-asdf-vm?id=install-asdf-vm
 source /usr/local/opt/asdf/asdf.fish
 
+# PATH customization
 # Setup Postgres.app to be used from the CLI
-set -g fish_user_paths "/Applications/Postgres.app/Contents/Versions/latest/bin" $fish_user_paths
+fish_add_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
+
+# Enabling yarn global
+if test -f (which yarn)
+  fish_add_path (yarn global bin)
+end
+
+# Go PATH
+set -x GOPATH "$HOME/go"
+fish_add_path "$GOPATH/bin"
