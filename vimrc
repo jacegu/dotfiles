@@ -164,10 +164,9 @@ map <LEADER>n :NERDTree<CR>
 
 " fzf and fzf.vim
 map <LEADER>t :FZF<CR>
-
-" ack.vim
-nnoremap F :Ack <cword><cr>
-nnoremap <LEADER>a :Ack<space>
+map <LEADER>b :Buffers<CR>
+nnoremap F :Ag <cword><cr>
+nnoremap <LEADER>a :Ag<space>
 
 "Clean search
 nnoremap <LEADER><space> :noh<CR>
