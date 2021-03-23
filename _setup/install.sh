@@ -9,6 +9,7 @@ TARGET=$HOME
 PATHS=(
 config
 curlrc
+ignore
 gemrc
 gitconfig
 githooks
@@ -107,6 +108,7 @@ function setupBrewBundle() {
     brew bundle
     echo '✅ `brew bundle` run'
   else
+    echo
     echo '✅ "Skipping `brew bundle`...'
   fi
 }
