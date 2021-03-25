@@ -165,7 +165,7 @@ map <LEADER>n :NERDTree<CR>
 " fzf and fzf.vim
 map <LEADER>t :FZF<CR>
 map <LEADER>b :Buffers<CR>
-nnoremap F :Ag <cword><cr>
+nnoremap F :Ag <C-r><C-w><CR>
 nnoremap <LEADER>a :Ag<space>
 
 "Clean search
