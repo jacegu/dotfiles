@@ -43,7 +43,7 @@ function _git_branch_prompt
   set -l normal (set_color normal)
   set -l cyan (set_color cyan)
 
-  printf "$cyan%s" (_short_git_branch_name)
+  printf " $cyan%s" (_short_git_branch_name)
 end
 
 function _git_status_prompt
@@ -52,9 +52,9 @@ function _git_status_prompt
   set -l green (set_color green)
 
   if [ (_is_git_dirty) ]
-    printf "$red✗$normal"
+    printf "$red$normal"
   else
-    printf "$green✓$normal"
+    printf "$green$normal"
   end
 end
 
