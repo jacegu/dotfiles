@@ -4,3 +4,8 @@ vim/plugged
 
 # FISH
 config/fish/fishd.*
+
+# Config node_modules and yarn.lock(s)
+config**/node_modules
+config**/yarn.lock
+
