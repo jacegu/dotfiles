@@ -119,12 +119,13 @@ if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 end
 
+" NERDTree Settings
+let NERDTreeIgnore = ['node_modules']
 
 " airline.vim options
 " let g:airline_theme='kalisi'
 let g:airline_theme='onehalfdark'
 let g:airline_powerline_fonts=1
-
 
 " matchup.vim config
 let g:matchup_matchparen_offscreen = {}
