@@ -38,8 +38,8 @@ set showmode
 " highlight the line containing the cursor
 set cursorline
 
-" show unwanted whitespaces
-set listchars=tab:-✈,trail:,extends:>,nbsp:◊
+" show unwanted whitespaces 
+set listchars=tab:⊢-→,trail:,nbsp:,extends:↲
 set list!
 
 " fast terminal connection
