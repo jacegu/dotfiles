@@ -4,26 +4,32 @@ source $HOME/.config/fish/aliases.fish
 # Enable Vi mode
 fish_vi_key_bindings
 
+# Setup Homebrew
+eval (/opt/homebrew/bin/brew shellenv)
+
 # Setup Jump (https://github.com/gsamokovarov/jump)
-status --is-interactive; and source (jump shell --bind=t fish | psub)
+if type -q "jump"
+  status --is-interactive; and source (jump shell --bind=t fish | psub)
+end
 
 # Setup direnv (https://direnv.net/)
 # https://direnv.net/docs/hook.html#fish
-eval (direnv hook fish)
+if type -q "direnv"
+  eval (direnv hook fish)
+end
 
 # Setup asdf (https://asdf-vm.com)
 # https://asdf-vm.com/#/core-manage-asdf-vm?id=install-asdf-vm
-source /usr/local/opt/asdf/asdf.fish
-
-# PATH customization
-# Setup Postgres.app to be used from the CLI
-fish_add_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
-
-# Enabling yarn global
-if test -f (which yarn)
-  fish_add_path (yarn global bin)
+if type -q "asdf"
+  source (brew --prefix asdf)/asdf.fish
 end
 
-# Go PATH
-set -x GOPATH "$HOME/go"
-fish_add_path "$GOPATH/bin"
+# Setup Google Cloud Platform SDK
+if test -e /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+end
+
+# Enabling yarn global
+if type -q "yarn"
+  fish_add_path (yarn global bin)
+end
