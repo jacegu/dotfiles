@@ -2,8 +2,9 @@ source ~/.vim/plugins.vim
 
 " set mouse support
 set ttyfast
-" set mouse=a
-set ttymouse=xterm2
+set mouse=a
+" Only for vi and vim (not neovim)
+" set ttymouse=xterm2
 
 " this must be first, because it changes other options as a side effect
 set nocompatible
