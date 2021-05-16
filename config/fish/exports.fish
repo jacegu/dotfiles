@@ -2,9 +2,9 @@
 # Make fish the default shell
 set -gx SHELL (which fish);
 
-# Make vim the default editor
-set -gx EDITOR "vim";
-set -gx VISUAL "vim";
+# Make nvim the default editor
+set -gx EDITOR "nvim";
+set -gx VISUAL "nvim";
 
 
 # Prefer US English and use UTF-8

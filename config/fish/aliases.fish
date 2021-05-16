@@ -18,8 +18,8 @@ alias wip "git commit -a -m'WIP'"
 alias unwip "git show HEAD; git reset HEAD~1"
 
 # VIM ##########################################################################
-alias v  "vim"
-alias vi "vim"
+alias v  "nvim"
+alias vi "nvim"
 alias vim-view-clean="rm ~/.vim/view/*"
 alias retag="ctags -R --exclude=(basename ./.*) --exclude=log --exclude=tmp --exclude=node_modules --exclude=vendor"
 
