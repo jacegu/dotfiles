@@ -119,7 +119,10 @@ if executable('ag')
 
   " Use ag to consume fzf output (and respect .gitignore)
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+  command! -nargs=+ -complete=file Rag call fzf#vim#ag_raw(<q-args>)
 end
+
 
 " NERDTree Settings
 let NERDTreeShowHidden=1
