@@ -1,3 +1,3 @@
-nodejs 14.16.0
-golang 1.13.8
-ruby 3.0.0
+nodejs ref:v14.17.0
+ruby 3.0.1
+python 3.9.5
