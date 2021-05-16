@@ -68,13 +68,14 @@ set hlsearch
 set showmatch
 
 " COLOR SCHEMES
-set termguicolors
+" https://github.com/sonph/onehalf/blob/master/vim/README.md
+set t_Co=256
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 colorscheme onehalflight
-" let ayucolor="light"
-" colorscheme ayu
-" set t_Co=256
-" colorscheme Tomorrow
-
 
 " status bar
 set showcmd
@@ -124,7 +125,6 @@ end
 let NERDTreeIgnore = ['node_modules']
 
 " airline.vim options
-" let g:airline_theme='kalisi'
 let g:airline_theme='onehalfdark'
 let g:airline_powerline_fonts=1
 
