@@ -6,6 +6,9 @@ set -gx SHELL (which fish);
 set -gx EDITOR "nvim";
 set -gx VISUAL "nvim";
 
+# Set Bat theme (https://github.com/sharkdp/bat)
+set -gx BAT_THEME "OneHalfLight";
+
 
 # Prefer US English and use UTF-8
 set -gx LANG        "en_US.UTF-8";
