@@ -1,11 +1,18 @@
-# VIM
+# Vim
+vim/backups
 vim/view
 vim/plugged
 
-# FISH
-config/fish/fishd.*
+# Config
+config/*
 
-# Config node_modules and yarn.lock(s)
-config**/node_modules
-config**/yarn.lock
+# Config Fish
+!config/fish/aliases.fish
+!config/fish/config.fish
+!config/fish/exports.fish
+!config/fish/functions/*.fish
+
+# Config NeoVim
+!config/nvim/init.vim
+
 
