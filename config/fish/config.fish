@@ -1,6 +1,3 @@
-source $HOME/.config/fish/exports.fish
-source $HOME/.config/fish/aliases.fish
-
 # Enable Vi mode
 fish_vi_key_bindings
 
@@ -33,3 +30,7 @@ end
 if type -q "yarn"
   fish_add_path (yarn global bin)
 end
+
+
+source $HOME/.config/fish/exports.fish
+source $HOME/.config/fish/aliases.fish
