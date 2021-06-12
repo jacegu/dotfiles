@@ -68,7 +68,7 @@ function setupLinks() {
 function setLoginShell() {
   FISH_PATH=`which fish`
 
-  if [ test -ef $FISH_PATH ]
+  if [ ! -f $FISH_PATH ]
   then
     # When fish shell is not an allowed shell: allow it
     if [ $(sudo cat /etc/shells | grep -c "$FISH_PATH") -eq 0 ]
@@ -115,6 +115,8 @@ function setupAsdf() {
   then
     echo '✅ asdf already installed'
     echo '✳️  Installing plugins...'
+    asdf plugin-add elixir
+    asdf plugin-add erlang
     asdf plugin-add golang
     asdf plugin-add nodejs
     asdf plugin-add python
