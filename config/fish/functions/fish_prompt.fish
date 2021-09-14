@@ -43,7 +43,8 @@ function _git_branch_prompt
   set -l normal (set_color normal)
   set -l cyan (set_color cyan)
 
-  printf " $cyan%s" (_short_git_branch_name)
+  # printf " $cyan%s" (_short_git_branch_name)
+  printf "$cyan%s" (_short_git_branch_name)
 end
 
 function _git_status_prompt
@@ -52,9 +53,11 @@ function _git_status_prompt
   set -l green (set_color green)
 
   if [ (_is_git_dirty) ]
-    printf "$red$normal"
+    #printf "$red$normal"
+    printf $red"ko"$normal
   else
-    printf "$green$normal"
+    #printf "$green$normal"
+    printf $green"ok"$normal
   end
 end
 
@@ -96,5 +99,6 @@ function fish_prompt
   set git_prompt (_git_prompt)
   set vi_prompt  (_vi_prompt)
 
-  printf "\n🦖 $normal$purple$pwd_prompt$git_prompt $black$vi_prompt ❯$normal "
+  # printf "\n🦖 $normal$purple$pwd_prompt$git_prompt $black$vi_prompt ❯$normal "
+  printf "\n> $normal$purple$pwd_prompt$git_prompt $black$vi_prompt ❯$normal "
 end

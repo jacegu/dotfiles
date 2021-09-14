@@ -1,3 +1,6 @@
+# Ignore git-worktree directory by default
+gwt
+
 # Ignore ctags file
 tags
 .ctags

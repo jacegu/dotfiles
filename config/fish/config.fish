@@ -22,9 +22,11 @@ if type -q "asdf"
 end
 
 # Setup Google Cloud Platform SDK
-if test -e /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
-  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+set -l GOOGLE_CLOUD_SDK_PATH /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+if test -e $GOOGLE_CLOUD_SDK_PATH
+  source $GOOGLE_CLOUD_SDK_PATH
 end
+set -e GOOGLE_CLOUD_SDK_PATH
 
 # Enabling yarn global
 if type -q "yarn"
@@ -34,3 +36,6 @@ end
 
 source $HOME/.config/fish/exports.fish
 source $HOME/.config/fish/aliases.fish
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+

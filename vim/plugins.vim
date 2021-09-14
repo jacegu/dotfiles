@@ -21,8 +21,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'andymass/vim-matchup'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'janko-m/vim-test'
 
 " Initialize plugin system
