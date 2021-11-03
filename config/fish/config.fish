@@ -2,7 +2,8 @@
 fish_vi_key_bindings
 
 # Setup Homebrew
-eval (/opt/homebrew/bin/brew shellenv)
+# this comes from the setup on the M1
+# eval (/opt/homebrew/bin/brew shellenv)
 
 # Setup Jump (https://github.com/gsamokovarov/jump)
 if type -q "jump"

@@ -20,11 +20,11 @@ function _my_pwd_prompt
 end
 
 function _git_branch_name
-  echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+  echo (command git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
 end
 
 function _short_git_branch_name
-  set -l name (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+  set -l name (command git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
 
   if [ (string length $name) -gt 20 ]
    set -l prefix (string sub --length=5 $name)
@@ -36,14 +36,15 @@ function _short_git_branch_name
 end
 
 function _is_git_dirty
-  echo (command git status -s --ignore-submodules=dirty ^/dev/null)
+  echo (command git status -s --ignore-submodules=dirty 2>/dev/null)
 end
 
 function _git_branch_prompt
   set -l normal (set_color normal)
   set -l cyan (set_color cyan)
 
-  printf " $cyan%s" (_short_git_branch_name)
+  # printf " $cyan%s" (_short_git_branch_name)
+  printf " $cyan%s" (_short_git_branch_name)
 end
 
 function _git_status_prompt
@@ -52,9 +53,9 @@ function _git_status_prompt
   set -l green (set_color green)
 
   if [ (_is_git_dirty) ]
-    printf "$red$normal"
+    printf "$red✗$normal"
   else
-    printf "$green$normal"
+    printf "$green✓$normal"
   end
 end
 
@@ -96,5 +97,5 @@ function fish_prompt
   set git_prompt (_git_prompt)
   set vi_prompt  (_vi_prompt)
 
-  printf "\n🦖 $normal$purple$pwd_prompt$git_prompt $black$vi_prompt ❯$normal "
+  printf "\n$normal$purple$pwd_prompt$git_prompt $black$vi_prompt ❯$normal "
 end
