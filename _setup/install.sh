@@ -68,13 +68,19 @@ function setupLinks() {
 function setLoginShell() {
   FISH_PATH=`which fish`
 
-  if [ test -ef $FISH_PATH ]
+  if [ -z "$FISH_PATH" ]
+  then
+    echo "☠️' fish not nound (not installed or brew environment not set)"
+    exit -1
+  fi
+
+  if [ test -ef "$FISH_PATH" ]
   then
     # When fish shell is not an allowed shell: allow it
     if [ $(sudo cat /etc/shells | grep -c "$FISH_PATH") -eq 0 ]
     then
       sudo sh -c "echo $FISH_PATH >> /etc/shells"
-    , echo "✅ $FISH_PATH added to /etc/shells"
+      echo "✅ $FISH_PATH added to /etc/shells"
     else
       echo "✅ $FISH_PATH already present int /etc/shells"
     fi
